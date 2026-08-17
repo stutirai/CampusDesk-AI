@@ -10,7 +10,7 @@ It also supports multimodal interaction through image uploads, voice input, docu
 
 ---
 
-##  PROJECT OVERVIEW 
+## 🎓 Project Overview
 
 Students often need information about admissions, examinations, fees, library services, academic documents, notices, and other college-related topics.
 
@@ -28,9 +28,9 @@ The project was developed as part of an **IBM Generative AI course project**.
 
 ---
 
-##  FEATURES
+## ✨ Features
 
-###  AI Chatbot
+### 🤖 AI Chatbot
 
 - Conversational student-support interface
 - Natural-language question answering
@@ -42,7 +42,7 @@ The project was developed as part of an **IBM Generative AI course project**.
 - Copy-to-clipboard functionality
 - Voice input and AI voice responses
 
-###  PDF Upload & Retrieval-Augmented Generation
+### 📄 PDF Upload & Retrieval-Augmented Generation
 
 - Upload college PDFs directly through the chatbot
 - Supports documents such as syllabi, college notices, handbooks, and academic documents
@@ -52,7 +52,7 @@ The project was developed as part of an **IBM Generative AI course project**.
 - Uses cosine similarity to retrieve relevant document sections
 - Sends relevant retrieved content to Gemini for grounded responses
 
-###  PDF Study Tools
+### 📚 PDF Study Tools
 
 Uploaded documents can be used for study-oriented tasks such as:
 
@@ -61,20 +61,20 @@ Uploaded documents can be used for study-oriented tasks such as:
 - Preparing for examinations
 - Extracting important key points
 
-###  Image Understanding
+### 🖼️ Image Understanding
 
 - Upload PNG, JPG/JPEG, or WEBP images
 - Uses Gemini for AI-powered image analysis
 - Allows students to ask questions about uploaded images
 - Handles unclear or unreadable images without intentionally guessing
 
-###  Voice Interaction
+### 🎤 Voice Interaction
 
 - Voice input using the Web Speech API
 - Text-to-speech responses using the browser's Speech Synthesis API
 - Users can listen to generated answers directly from the chat
 
-###  User Experience
+### 🌓 User Experience
 
 - Clean and responsive interface
 - Light and dark themes
@@ -84,7 +84,7 @@ Uploaded documents can be used for study-oriented tasks such as:
 - Typing/loading animation
 - Responsive design for smaller screens
 
-###  Progressive Web App
+### 📱 Progressive Web App
 
 - Installable as an application on supported desktop and mobile browsers
 - PWA manifest
@@ -93,20 +93,23 @@ Uploaded documents can be used for study-oriented tasks such as:
 
 ---
 
-##  SCREENSHOTS
+## 🖥️ Screenshots
 
 ### CampusDesk AI Interface
 
-<img src="chatbot.jpeg" alt="CampusDesk AI Interface" width="600">
-<img src="chatbot2.jpeg" alt="CampusDesk AI Interface" width="600">
+![CampusDesk AI Interface](chatbot.jpeg)
 
+### PDF Study Tools
+
+![CampusDesk AI PDF Study Tools](chatbot2.jpeg)
 
 ### System Architecture
 
-<img src="docs/architecture_diagram.png" alt="CampusDesk AI Architecture" width="600">
+![CampusDesk AI Architecture](docs/architecture_diagram.png)
+
 ---
 
-##  HOW IT WORKS
+## 🧠 How It Works
 
 The overall workflow of CampusDesk AI is:
 
@@ -160,7 +163,7 @@ The overall workflow of CampusDesk AI is:
 
 ---
 
-##  RAG PIPELINE
+## 🔍 RAG Pipeline
 
 The document-based question-answering system follows these steps:
 
@@ -200,7 +203,7 @@ This allows CampusDesk AI to combine **retrieval-based information access with G
 
 ---
 
-##  PROJECT STRUCTURE 
+## 🏗️ Project Structure
 
 ```text
 CampusDesk-AI/
@@ -231,7 +234,7 @@ CampusDesk-AI/
 ├── tests/
 │   └── test_core_logic.py
 │
-├── chatbot.png
+├── chatbot.jpeg
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt
@@ -240,7 +243,7 @@ CampusDesk-AI/
 
 ---
 
-##  TECH STACK 
+## 🛠️ Tech Stack
 
 | Category | Technology |
 |---|---|
@@ -260,7 +263,7 @@ CampusDesk-AI/
 
 ---
 
-##  INSTALLATION & SETUP
+## ⚙️ Installation & Setup
 
 ### 1. Clone the repository
 
@@ -311,7 +314,7 @@ Open the address in a browser.
 
 ---
 
-##  TESTING
+## 🧪 Testing
 
 Basic project tests are included in:
 
@@ -327,7 +330,7 @@ python tests/test_core_logic.py
 
 ---
 
-##  RAG DEMONSTRATION NOTEBOOK
+## 📓 RAG Demonstration Notebook
 
 The repository includes:
 
@@ -350,7 +353,7 @@ jupyter notebook notebooks/rag_logic_walkthrough.ipynb
 
 ---
 
-##  SECURITY
+## 🔐 Security
 
 The Gemini API key is loaded through an environment variable:
 
@@ -364,7 +367,7 @@ Only `.env.example` is included in the repository as a configuration template.
 
 ---
 
-##  KNOWN LIMITATIONS 
+## ⚠️ Known Limitations
 
 ### PDF Tables
 
@@ -388,7 +391,7 @@ Conversation history is maintained within the current browser session and is not
 
 ---
 
-##  FUTURE IMPROVEMENTS 
+## 🚀 Future Improvements
 
 Possible future improvements include:
 
@@ -406,7 +409,7 @@ Possible future improvements include:
 
 ---
 
-##  PROJECT HIGHLIGHTS
+## 🎯 Project Highlights
 
 CampusDesk AI demonstrates the integration of several Generative AI and AI-assisted application concepts:
 
@@ -426,7 +429,7 @@ The project focuses on solving a practical student-support problem while demonst
 
 ---
 
-##  PROJECT LINKS
+## 🌐 Project Links
 
 ### GitHub Repository
 
@@ -434,7 +437,15 @@ https://github.com/stutirai/CampusDesk-AI
 
 ### Live Demo
 
-The current version runs locally as a Flask application.
+🚀 **Try CampusDesk AI live:**
+
+https://campus-desk-1x800l047-stutirai2026.vercel.app
+
+The live version is deployed on Vercel and uses the Gemini API through a secure environment variable.
+
+### Local Demo
+
+To run the project locally:
 
 ```bash
 python app.py
@@ -446,11 +457,9 @@ Then open:
 http://127.0.0.1:5000
 ```
 
-A public live deployment can be added in the future.
-
 ---
 
-##  RESUME PROJECT TITLE
+## 📌 Resume Project Title
 
 **CampusDesk AI — AI-Powered Student Support Chatbot**
 
@@ -460,7 +469,7 @@ A public live deployment can be added in the future.
 
 ---
 
-##  AUTHOR
+## 👩‍💻 Author
 
 **Stuti Rai**
 
@@ -468,6 +477,6 @@ B.Tech — Artificial Intelligence & Data Science
 
 ---
 
-##  LICENSE
+## 📄 License
 
 This project was developed as an academic/educational project.
