@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CampusDesk AI — Student Support</title>
+
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}"
+  >
+
+  <link rel="manifest" href="/manifest.json">
+
+  <meta
+    name="theme-color"
+    content="#2f5d50"
+  >
+
+  <link
+    rel="icon"
+    href="{{ url_for('static', filename='icons/icon-192.png') }}"
+  >
+</head>
+
+
+<body>
+
+  <div class="layout">
+
+    <!-- =========================================================
+         HISTORY
+         ========================================================= -->
+
+    <button
+      id="history-toggle"
+      class="sidebar-tab"
+      title="Toggle history"
+    >
+      History
+    </button>
+
+
+    <aside class="sidebar">
+
+      <div class="sidebar-title">
+        History
+      </div>
+
+      <div
+        id="history-list"
+        class="history-list"
+      >
+
+        <p class="history-empty">
+          No questions yet this session.
+        </p>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN DESK
+         ========================================================= -->
+
+    <div class="desk">
+
+      <!-- =======================================================
+           HEADER
+           ======================================================= -->
+
+      <header>
+
+        <div class="header-text">
+
+          <div class="eyebrow">
+            Student Support · AI Assisted
+          </div>
+
+
+          <div class="title-row">
+
+            <h1>
+              CampusDesk AI
+            </h1>
+
+            <span
+              class="floating-hi"
+              aria-hidden="true"
+            >
+              Hi!
+            </span>
+
+          </div>
+
+
+          <p class="sub">
+            Your AI-powered assistant for instant answers.
+          </p>
+
+
+          <p class="greeting">
+            Ask me anything, or upload a PDF or image for help.
+          </p>
+
+        </div>
+
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          title="Toggle dark mode"
+        >
+          🌙
+        </button>
+
+      </header>
+
+
+      <!-- =======================================================
+           SUGGESTED QUESTIONS
+           ======================================================= -->
+
+      <div class="chips-bar">
+
+        <span class="empty-label">
+          Try asking:
+        </span>
+
+
+        <div class="chips">
+
+          <button
+            class="chip"
+            onclick="askSuggested('How do I check my exam timetable?')"
+          >
+            Exam schedule
+          </button>
+
+
+          <button
+            class="chip"
+            onclick="askSuggested('What documents do I need for admission?')"
+          >
+            Admissions
+          </button>
+
+
+          <button
+            class="chip"
+            onclick="askSuggested('What is the fee refund process?')"
+          >
+            Fee payment
+          </button>
+
+
+          <button
+            class="chip"
+            onclick="askSuggested('What is the library book borrowing limit?')"
+          >
+            Library
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =======================================================
+           CHAT LOG
+           ======================================================= -->
+
+      <div id="log"></div>
+
+
+      <!-- =======================================================
+           FILE UPLOAD AREA
+           ======================================================= -->
+
+      <div class="upload-area">
+
+        <div class="attachment-row">
+
+          <!-- PDF -->
+
+          <label
+            for="pdf-upload"
+            class="upload-label"
+          >
+            <span>📄</span>
+            Upload PDF
+          </label>
+
+          <input
+            type="file"
+            id="pdf-upload"
+            accept=".pdf"
+            style="display: none;"
+          >
+
+
+          <!-- IMAGE -->
+
+          <label
+            for="image-upload"
+            class="upload-label"
+          >
+            <span>🖼️</span>
+            Upload Image
+          </label>
+
+          <input
+            type="file"
+            id="image-upload"
+            accept="image/png,image/jpeg,image/webp"
+            style="display: none;"
+          >
+
+        </div>
+
+
+        <!-- Upload status -->
+
+        <div
+          id="upload-status"
+          class="upload-status"
+        >
+          PDF or image is optional
+        </div>
+
+
+        <!-- =====================================================
+             SMART PDF ACTIONS
+
+             Hidden until a PDF is successfully uploaded.
+             ===================================================== -->
+
+        <div
+          id="pdf-actions"
+          class="pdf-actions"
+          hidden
+        >
+
+          <div class="pdf-actions-title">
+            What would you like to do with this PDF?
+          </div>
+
+
+          <div class="pdf-action-buttons">
+
+            <button
+              type="button"
+              class="pdf-action"
+              data-action="summarize"
+            >
+              <span class="action-icon">📌</span>
+
+              <span>
+                <strong>Summarize</strong>
+                <small>Get the main points</small>
+              </span>
+
+            </button>
+
+
+            <button
+              type="button"
+              class="pdf-action"
+              data-action="mcqs"
+            >
+              <span class="action-icon">📝</span>
+
+              <span>
+                <strong>Generate MCQs</strong>
+                <small>Practice from the PDF</small>
+              </span>
+
+            </button>
+
+
+            <button
+              type="button"
+              class="pdf-action"
+              data-action="exam_prep"
+            >
+              <span class="action-icon">🎓</span>
+
+              <span>
+                <strong>Exam Prep</strong>
+                <small>Create a revision guide</small>
+              </span>
+
+            </button>
+
+
+            <button
+              type="button"
+              class="pdf-action"
+              data-action="key_points"
+            >
+              <span class="action-icon">🔍</span>
+
+              <span>
+                <strong>Key Points</strong>
+                <small>Extract important information</small>
+              </span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =======================================================
+           CHAT INPUT
+           ======================================================= -->
+
+      <form id="chat-form">
+
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Type your question..."
+          autocomplete="off"
+        >
+
+
+        <button
+          type="button"
+          id="mic-btn"
+          title="Voice input"
+        >
+          🎤
+        </button>
+
+
+        <button
+          type="submit"
+        >
+          Ask
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <script
+    src="{{ url_for('static', filename='script.js') }}"
+  ></script>
+
+</body>
+
+</html>

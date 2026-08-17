@@ -1,0 +1,19 @@
+# Environment variables (contains real secrets — never commit this)
+.env
+
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+
+# Uploaded PDFs (test data, not part of the codebase)
+*.pdf
