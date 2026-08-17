@@ -1,2 +1,5 @@
-flask
+Flask
+pypdf
+scikit-learn
 google-generativeai
+Pillow
