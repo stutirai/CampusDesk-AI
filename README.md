@@ -97,8 +97,8 @@ Uploaded documents can be used for study-oriented tasks such as:
 
 ### CampusDesk AI Interface
 
-<img src="chatbot.png" alt="CampusDesk AI Interface" width="600">
-<img src="chatbot2.png" alt="CampusDesk AI Interface" width="600">
+<img src="chatbot.jpeg" alt="CampusDesk AI Interface" width="600">
+<img src="chatbot2.jpeg" alt="CampusDesk AI Interface" width="600">
 
 
 ### System Architecture
